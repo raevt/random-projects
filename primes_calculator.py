@@ -11,7 +11,7 @@ def gen_not_primes(maximum, minimum):
     if starting_point < 2:
         starting_point = 2
     for i in range(starting_point, maximum + 1):
-        for n in range(2, maximum + 1):
+        for n in range(2, (maximum // i) + 1):
             if (i * n) <= maximum and (i * n) >= minimum and (i * n) not in not_primes:
                 not_primes.add(i * n)
     return sorted(not_primes)
