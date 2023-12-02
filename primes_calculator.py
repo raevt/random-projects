@@ -1,7 +1,9 @@
 """
     Rae Adimer
 
-    Calculates primes between two numbers, minimum and maximum inclusive. I'm not entirely sure if this works 100% of the time.
+    Does not currently work with low ranges (0-50 ish), not sure why.
+
+    Calculates primes between two numbers, minimum and maximum inclusive.
 
     It does this by multiplying together all numbers that could multiply to a number in the given range, creating a set of numbers that are not primes. It then iterates through each number in the provided range, checking whether it is in the set. If not, it is a prime number.
 
@@ -23,10 +25,11 @@ def gen_not_primes(maximum, minimum):
     fail_counter = 0
     # Starts with the rounded-up square root of the minimum (or 2, if the minimum is less than 2)
     # This, I think, is the smallest number which can multiply with a number from the nested for-loop to something in the provided range.
-    starting_point = math.ceil(minimum**(1/2))
-    if starting_point < 2:
-        starting_point = 2
-    for i in range(starting_point, maximum // 2 + 1):
+    outer_starting_point = math.ceil(minimum**(1/2))
+    if outer_starting_point < 2:
+        outer_starting_point = 2
+    # do the same with inner starting point? not working under 50-ish
+    for i in range(outer_starting_point, maximum // 2 + 1):
         for n in range(minimum // i, (maximum // i) + 1): # Limits the starting point to the smallest number that multiplies with i to the minimum, and the ending point to the smallest number that multiplies with i to the maximum.
             if (i * n) <= maximum and (i * n) >= minimum and (i * n) not in not_primes:
                 not_primes.add(i * n)
