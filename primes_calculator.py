@@ -1,7 +1,6 @@
 """
     Rae Adimer
     Calculates primes between two numbers
-    Yes this is super inefficient
 """
 import math
 
