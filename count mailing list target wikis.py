@@ -1,5 +1,10 @@
 """
     Rae Adimer
+
+    How to use:
+        1. Download wikitext as file.txt, e.g., from https://meta.wikimedia.org/wiki/Global_message_delivery/Targets/Tech_ambassadors
+        2. run this
+        3. look at resulting csv! :D
 """
 
 def get_wikis():
